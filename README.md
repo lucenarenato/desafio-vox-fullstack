@@ -9,6 +9,7 @@
 - Postgresql
 
 ## Start do projeto
+Usar o npm ou pnpm
 
 ```sh
 pnpm install 
@@ -21,6 +22,10 @@ php artisan key:generate
 php artisan cache:clear && php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan optimize:clear
 chmod -R gu+w storage && chmod -R guo+w storage && chmod -R 777 storage/ && chmod -R 777 storage/* bootstrap/cache/*
 composer dump-autoload
+php artisan migrate
+php artisan db:seed --class=RolePermissionSeeder
+php artisan db:seed --class=PermissionTableSeeder
+php artisan db:seed --class=CreateAdminUserSeeder
 
 ```
 
