@@ -14,6 +14,8 @@ class Card extends Model
         'list_title',
         'card_order',
         'list_id',
+        'list_id_fk',
+        'label_id' => 3,
         'due_date',
         'card_timestamp',
         'archive_class',

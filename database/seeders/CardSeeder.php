@@ -19,6 +19,8 @@ class CardSeeder extends Seeder
                 'list_title' => 'Board List',
                 'card_order' => 0,
                 'list_id' => '1',
+                'list_id_fk' => 1, // Nova coluna obrigatória
+                'label_id' => 3,
                 'due_date' => '2024-08-06',
                 'card_timestamp' => '1628020875002',
                 'archive_class' => '',
@@ -36,7 +38,8 @@ class CardSeeder extends Seeder
                 'label_color' => '',
                 'list_title' => 'Board List',
                 'card_order' => 1,
-                'list_id' => '1',
+                'list_id_fk' => 1,
+                'label_id' => 3,
                 'due_date' => '2024-08-06',
                 'card_timestamp' => '1628020888633',
                 'archive_class' => '',
