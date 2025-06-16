@@ -14,55 +14,79 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            min-height: 100vh;
+            font-family: 'Nunito', sans-serif;
+        }
+        .board {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .card-task {
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .card-task:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .header-bar {
+            background-color: #0d6efd;
+            color: white;
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <div class="position-relative">
-        <img id="background" class="position-absolute top-0 start-0" style="max-width: 877px; left: -20px;" src="https://laravel.com/assets/img/welcome/background.svg" alt="Background" />
+<body>
 
-        <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center text-center">
-            <div class="container px-4">
-                <header class="row py-5">
-                    <div class="col d-flex justify-content-end">
-
-                        @if (Route::has('login'))
-                            <nav class="d-flex gap-2">
-                                @auth
-                                    <a
-                                        href="{{ url('/dashboard') }}"
-                                        class="btn btn-outline-dark"
-                                    >
-                                        Dashboard
-                                    </a>
-                                @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="btn btn-outline-dark"
-                                    >
-                                        Log in
-                                    </a>
-
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="btn btn-outline-dark"
-                                        >
-                                            Register
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark header-bar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Vox-Trello</a>
+            <div>
+                @if (Route::has('login'))
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="btn btn-light me-2">
+                            <i class="fa-solid fa-gauge"></i> Dashboard
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-light me-2">
+                            <i class="fa-solid fa-right-to-bracket"></i> Login
+                        </a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="btn btn-outline-light">
+                                <i class="fa-solid fa-user-plus"></i> Register
+                            </a>
                         @endif
-                    </div>
-                </header>
-
-                <footer class="py-5 text-muted small">
-                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                </footer>
+                    @endauth
+                @endif
             </div>
+        </div>
+    </nav>
+
+    <!-- Boards Section -->
+    <div class="container my-5">
+        <div class="row g-4">
+
+
+
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS (opcional, necessário se usar componentes interativos) -->
+    <!-- Footer -->
+    <footer class="text-center py-4 text-white small">
+        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) • Desenvolvido por Renato Lucena 🚀
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

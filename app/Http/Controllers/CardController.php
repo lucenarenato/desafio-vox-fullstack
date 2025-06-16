@@ -2,44 +2,94 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Card;
-use App\Models\Label;
-use App\Models\ListModel;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Auth;
+use \App\Models\BoardCard;
+use \App\Models\CardTag;
+use \App\Models\CardTask;
+use \App\Models\Comment;
 
 class CardController extends Controller
 {
-    public function index()
+    protected $boardCard;
+    protected $cardTag;
+    protected $cardTask;
+    protected $comment;
+
+    public function __construct(BoardCard $boardCard, CardTag $cardTag, CardTask $cardTask, Comment $comment)
     {
-        // Supondo que você tem modelos List, Label, Card
-        $lists = ListModel::with('cards')->get();
-        return view('cards.index', compact('lists'));
+        $this->boardCard = $boardCard;
+        $this->cardTag = $cardTag;
+        $this->cardTask = $cardTask;
+        $this->comment = $comment;
     }
 
-    public function storeCard(Request $request)
+    /**
+     * Creates a new card in database
+     * @param  Request $request have the input data
+     * @return object created card
+     */
+    public function postCard(Request $request)
     {
-        // Validação e salvar card
-        $card = Card::create($request->all());
-        return response()->json(['code' => 200, 'id' => $card->id]);
+        $this->validate($request, [
+            'card-title' => 'required',
+        ]);
+        return $this->boardCard->createCard($request, Auth::id());
     }
 
-    public function updateCard(Request $request)
+    /**
+     * Change the card list. For example if the card is in list x then you drag it to the
+     * other list named y. So, now using this function card list has been updaed to list_id
+     * of y in database.
+     * @param  Request $request has input data for the function
+     * @return object updated data
+     */
+    public function changeCardList(Request $request)
     {
-        $card = Card::findOrFail($request->id);
-        $card->update($request->all());
-        return response()->json(['code' => 200]);
+        return $this->boardCard->updateCardListId($request);
     }
 
-    public function archiveCard(Request $request)
+    /**
+     * Delete a card from a list.
+     * @param  Request $request has the id of the card
+     * @return boolean if the card is deleted or not
+     */
+    public function deleteCard(Request $request)
     {
-        $card = Card::findOrFail($request->id);
-        $card->delete();
-        return response()->json(['code' => 200]);
+        return $this->boardCard->deleteCard($request);
     }
 
-    public function getLabels()
+    /**
+     * Get a card detail from database.
+     * @param  Request $request has the data that is being used in this function
+     * @return object card detail
+     */
+    public function getCardDetail(Request $request)
     {
-        $labels = Label::all();
-        return response()->json($labels);
+        return [
+            "card" => $this->boardCard->getCard($request->get("cardId")),
+            "label" => $this->cardTag->getCardTag($request->get("cardId")),
+            "task" => $this->cardTask->getCardTasks($request->get("cardId")), //card_task
+            "comment" => $this->comment->getCardComment($request->get("cardId")),
+        ];
+    }
+
+    /**
+     * Update card date in database.
+     * @param  Request $request has the input data for this function
+     * @return object updated data
+     */
+    public function updateCardData(Request $request)
+    {
+        $this->cardTag->deleteCardTag($request->get("cardId"));
+        $this->cardTag->createCardTag($request);
+        $this->boardCard->updateCard($request); //updateCardownerid card_task
+
+        return [
+            "cardTitle" => $request->get("cardName"),
+            "cardId" => $request->get("cardId"),
+        ];
     }
 }
