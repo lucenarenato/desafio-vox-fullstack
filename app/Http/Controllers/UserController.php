@@ -5,15 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use \App\Models\Board;
+use App\Models\BoardCard;
+use App\Models\Department;
 use Spatie\Permission\Models\Role;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Hash;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    protected $board;
+    protected $user;
+
+    public function __construct(Board $board, User $user)
+    {
+        $this->board = $board;
+        $this->user = $user;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -136,5 +149,92 @@ class UserController extends Controller
         User::find($id)->delete();
         return redirect()->route('users.index')
                         ->with('success','User deleted successfully');
+    }
+
+    public function getProfile()
+    {
+        $boards = $this->board->getUserBoards(Auth::id());
+        $page = 'profile';
+        return view('user.profile', compact('boards', 'page'));
+    }
+
+    /**
+     * Get the dashboard view
+     * @return view home view
+     */
+    public function getDashboard()
+    {
+        $boardCreationPermission = false;
+
+        $auth_id = Auth::id();
+
+        $departmentWithOwnerAndBoard = Department::with(['boards', 'owner']);
+
+        $boardCards = BoardCard::with(['boards', 'owner'])->where('owner_id', $auth_id);
+
+        if ($boardCards->count()) {
+            $boardCreationPermission = true;
+            $boards = Board::with(['boardcard' => function ($query) use ($auth_id) {
+                $query->where('owner_id', $auth_id);
+            }])->get();
+        }
+
+        if (env('USER_ADMIN_ID1') == $auth_id || env('USER_ADMIN_ID2') == $auth_id) {
+            $departments = $departmentWithOwnerAndBoard->get();
+            $boardCreationPermission = false;
+        }
+
+        $departments = $departmentWithOwnerAndBoard->where('owner_id', $auth_id)->get();
+        if (sizeof($departments) > 0) {
+            $boardCreationPermission = false;
+        }
+
+        //dd($departments->toArray());
+        $b = Board::with('owner')->where('owner_id', $auth_id)->get();
+        if (sizeof($b) > 0) {
+            $boardCreationPermission = false;
+            $boards = Board::with('owner')->where('owner_id', $auth_id)->get();
+        }
+
+        $users = User::all();
+
+
+        if (!isset($boards)) {
+            $boards = [];
+        }
+
+        if (!$departments->count()) {
+            $departments = array();
+            foreach ($boards as $board) {
+                if (!$this->existIn($departments, $board->department))
+                    $departments[] = $board->department;
+            }
+        }
+
+
+        if (!isset($starredBoards)) {
+            $starredBoards = [];
+        }
+
+        return view('user.home', compact('boards', 'starredBoards', 'departments', 'boardCreationPermission', 'users'));
+    }
+
+
+    private function existIn($departments, $department)
+    {
+        foreach ($departments as $dep) {
+            if ($dep->id == $department->id)
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * Get the board view
+     * @return view board view
+     */
+    public function getBoard()
+    {
+        return view('user.board');
     }
 }

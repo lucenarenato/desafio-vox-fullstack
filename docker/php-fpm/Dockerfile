@@ -64,9 +64,6 @@ RUN pecl install redis && docker-php-ext-enable redis
 # Imagick:
 #####################################
 
-RUN pecl install imagick && \
-    docker-php-ext-enable imagick
-
 #####################################
 # GD:
 #####################################

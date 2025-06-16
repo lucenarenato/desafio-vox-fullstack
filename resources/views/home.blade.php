@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.__app')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <li style="padding-left: 15px; padding-right: 30px;">
+                        <a href="{{ url('dashboard/') }}" class="board-main-link-con" style="font-size: 20px; color: #393333;">
+                            Task Board
+                        </a>
+                    </li>
                 </div>
             </div>
         </div>
