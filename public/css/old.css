@@ -1,0 +1,1215 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+  html, body{
+    min-height: 100%;
+    height: 100%;
+    margin: auto;
+    padding: auto;
+    background-image: url("img/photo-1557682250-33bd709cbe85.jpg");
+    /* Full height */
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #172b4d;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    overflow: auto;
+      min-width: 100%;
+  }
+
+
+  /* columns parts lists */
+
+  div.main_container {
+
+    background: rgba(9,30,66,.09);
+    width: auto;
+    min-width: 100%;
+    width: fit-content;
+
+  }
+
+
+  /* columns that hold lists and cards */
+  div.listcontainer{
+    display: flex;
+    flex-flow: column no-wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: rgba(9,30,66,.05);
+
+  }
+
+  div.flex-list-item {
+    height: auto;
+    margin-left: 10px;
+    display: flex;
+    flex-flow: column no-wrap;
+    justify-content: flex-start;
+    min-width: 220px;
+    width: 272px;
+  }
+  div.drop-list{
+
+    border: 2px solid lightgray;
+    height: auto;
+    margin-left: 10px;
+    display: flex;
+    flex-flow: column no-wrap;
+    justify-content: flex-start;
+    min-width: 220px;
+    width: 272px;
+    background: lightgray;
+  }
+
+
+  div#static_add_list{
+
+    border: 2px solid lightgray;
+    height: auto;
+    margin-left: 10px;
+    display: flex;
+    flex-flow: column no-wrap;
+    justify-content: flex-start;
+    min-width: 272px;
+    width: 272px;
+    background: hsla(0,0%,100%,.24);
+    color: white;
+  }
+
+  button.add_new_list_btn {
+
+    width: 100%;
+    padding: 5px;
+    color: white;
+    text-align: left;
+  }
+
+  button.add_new_list_btn:hover {
+    color: white;
+  }
+  button.add_new_card_btn {
+    color: rgb(100, 100, 100);
+  }
+
+  div#static_add_list:hover{
+    background: hsla(0,0%,100%,.30);
+    color: white;
+  }
+
+  .card {
+    color: #172b4d;
+
+  }
+  .card-body div.add_new{
+
+    background: rgba(9,30,66,.08);
+    padding: 0;
+    margin: 0px;
+    background: rgba(9,30,66,.08);
+  }
+
+  .card-body {
+    padding: 5px;
+    height: 100%;
+  }
+
+  /* Hide title for new Created row
+     can be controled to show titile
+  */
+  .hidden_title {
+    display: none;
+  }
+
+  .plus_sign {
+    color: rgb(120 120 120);
+    margin-right: 5px;
+  }
+  div#static_add_list .plus_sign {
+    color: white;
+  }
+  div.card-title {
+    display: block;
+    background: rgba(250,255,255,.07);
+  }
+
+
+  .menu_sign {
+    color: gray;
+  }
+
+  /* end cloumns [lists] */
+
+  /* cards */
+
+
+  .task_card {
+    background: rgba(250,255,255,.9);
+    margin-bottom: 10px;
+    min-height: 30px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 0.882em;
+
+  }
+
+  .cards_container{
+    display: block;
+    max-height: 62vh;
+    overflow: auto;
+  }
+
+  .card_container{
+    padding: 1px;
+
+  }
+
+  /* ADD new Inputs */
+  button#cancel_add_list{
+    background: transparent;
+    border: none;
+  }
+
+  #cancel_add_list i {
+    font-size: 26px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: rgb(150 150 150);
+
+
+  }
+
+  div.cards_container{
+    height: auto;
+    min-height: 10px;
+
+  }
+
+  div.card_container{
+
+    margin-top: 3px;
+  }
+
+  input#new_list_name {
+    margin-bottom: 5px;
+  }
+  /* fixed helper hsla(0,0%,100%,.24) */
+  .float_right{
+     float:right;
+  }
+
+  /* Media queries */
+  @media only screen and (max-width: 800px) {
+    div.listcontainer{
+     width: fit-content;
+    }
+
+
+  }
+
+
+  div.active_drop_list {
+    background: lightblue;
+  }
+
+  /* new cards form */
+
+  #new-card-form {
+    height: auto;
+  }
+  #card_form_inputs{
+
+    height: auto;
+  }
+  #card_title{
+    min-height: 70px;
+    height: auto;
+    margin-bottom: 5px;
+
+  }
+
+  form #card_form_inputs {
+    width: 100%;
+  }
+
+  #cancel_add_card{
+    border: none;
+    background: lightgray;
+    font-size:1.5em;
+    height: auto;
+    color: rgb(120, 120, 120);
+  }
+
+  button#card_add_menu {
+    margin-right: 10px;
+    float: right;
+    border: none;
+    background: lightgray;
+    color: gray;
+  }
+
+
+
+  div.labels_container{
+    display:flex;
+    flex-flow:column nowrap;
+    width: 85%;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  div.labels_container .label_icon{
+     display: block;
+     margin-left: 10px;
+     margin-right: 10px;
+     width: 95%;
+     height:30px;
+     margin-top:5px;
+     border-radius: 4px;
+     cursor: pointer;
+     color: white;
+     padding: 5px;
+     font-weight: bold;
+     overflow: hidden;
+
+  }
+
+
+  div.labels_container .label_btn{
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 95%;
+     height:auto;
+     margin-top: 10px;
+     margin-top:5px;
+     border-radius: 4px;
+     background: white;
+     cursor: pointer;
+     color: black;
+     text-align: center;
+     padding: 10px;
+     font-weight: bold;
+     margin-top: 15px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+  }
+  div.labels_container .label_btn:hover {
+    background: black;
+    color: white;
+  }
+
+
+  .green {
+    background: #61bd4f;
+  }
+  .yellow {
+    background: #f2d600;
+  }
+
+  .orange{
+    background: #ff9f1a;
+  }
+
+  .red {
+    background: #eb5a46;
+  }
+
+  .purple {
+    background: #c377e0;
+  }
+
+  .blue {
+    background: #0079bf;
+  }
+
+  .lightblue {
+    background: #00c2e0;
+  }
+
+  .lightgreen {
+    background: #51e898;
+  }
+
+  .darkblue {
+    background: #344563;
+  }
+  .midblue {
+    background: #0079bf;
+  }
+
+  .nocolor {
+    background: transparent;
+    display: none;
+  }
+
+
+
+  /* labels hover */
+
+  .green:hover {
+    box-shadow: -8px 0 #519839;
+  }
+  .yellow:hover {
+    box-shadow: -8px 0 #97a0af;
+  }
+
+  .orange:hover{
+    box-shadow: -8px 0 #d9b51c;
+  }
+
+  .red:hover {
+    box-shadow: -8px 0 #b04632;
+  }
+
+  .purple:hover {
+    box-shadow: -8px 0 #89609e;
+  }
+
+  .blue:hover {
+    box-shadow: -8px 0 #055a8c;
+  }
+
+  .lightblue:hover {
+    box-shadow: -8px 0 #0098b7;
+  }
+
+  .lightgreen:hover {
+    box-shadow: -8px 0 #4bbf6b;
+  }
+
+  .darkblue:hover {
+    box-shadow: -8px 0 #091e42;
+  }
+
+  /* active colors  */
+  .green.active_label {
+    box-shadow: -8px 0 #519839;
+  }
+  .yellow.active_label {
+    box-shadow: -8px 0 #97a0af;
+  }
+
+  .orange.active_label{
+    box-shadow: -8px 0 #b59817;
+  }
+
+  .red.active_label {
+    box-shadow: -8px 0 #b04632;
+  }
+
+  .purple.active_label {
+    box-shadow: -8px 0 #89609e;
+  }
+
+  .blue.active_label {
+    box-shadow: -8px 0 #055a8c;
+  }
+
+  .lightblue.active_label {
+    box-shadow: -8px 0 #0098b7;
+  }
+
+  .lightgreen.active_label {
+    box-shadow: -8px 0 #4bbf6b;
+  }
+
+  .darkblue.active_label {
+    box-shadow: -8px 0 #091e42;
+  }
+
+
+
+  div.labels_container.hidelabel {
+    display: none !important;
+  }
+
+  textarea.new_card_textare{
+  resize:none;
+  overflow:auto;
+  width: 100%;
+  height: 30px;
+  background: white;
+  color: black;
+  margin-top: 10px;
+  border: 2px solid #344563;
+  }
+
+  h4#selectTitle {
+   margin-top:5px;margin-bottom:5px;
+  }
+
+  #add_new_label_container{
+   margin-top: 10px;
+  }
+
+  /* New Card Css*/
+  .card_metadata .card_text{
+    font-size: 1.1em;
+    width:100%;
+    display:block;
+    max-height: 400px;
+    overflow:auto;
+  }
+
+
+
+  .model_label  {
+    width: 100px;
+    height: 30px;
+    max-width: 70%;
+
+  }
+  .card_metadata div.card_label {
+    margin-right:auto;
+    width: max-content;
+    max-width: 150px;
+    overflow: hidden;
+    padding: 5px;
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    height: auto;
+    border-radius: 8px;
+    margin-left: 6px;
+    max-height: 40px;
+
+
+  }
+
+  .card_metadata{
+    height: 100%;
+  }
+  .card_metadata_container {
+    display: inline;
+    width: fit-content;
+    height: 100%;
+  }
+
+   .btn.model_open{
+      background: transparent;
+      display: inline;
+      margin-left: auto;
+      float: right;
+      max-width: 15%;
+      max-height: 65px;
+      color: black;
+  }
+
+  .card_metadata card_actions {
+    background: transparent;
+  }
+
+  .card_metadata .card_text{
+      dinsplay: inline;
+      width: 84%;
+      max-height: 300px;
+      overflow: hidden;
+  }
+
+  .card_metadata .label_class {
+    display: inline-block;
+
+  }
+  div.completed_model_due {
+    background: #61bd4f;
+    color: #fff;
+    border-radius: 3px;
+  }
+  .date_metadata {
+    background: khaki;
+    padding: 5px;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: 12px;
+    margin-bottom: 15px;
+  }
+  span#overdue_cell{
+    background: #EC9488;
+    padding: 0 4px;
+    color: #FFFFFF;
+    margin: auto 0 auto 8px;
+    text-transform: uppercase;
+    line-height: 16px;
+    font-size: 12px;
+    border-radius: 2px;
+  }
+  span.overdue_cell_hidden {
+    display: none;
+  }
+  span.overdue_cell_show {
+    display: block;
+  }
+  /* model css */
+
+  .label-containers {
+    backround: green;
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    margin-right: auto;
+
+  }
+  .list_title_container{
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: gray;
+  }
+  .activve_container, .description_container  {
+    margin-top: 10px;
+  }
+
+  #due_date_model1 {
+    margin-left: 5px;
+  }
+  .passeddue_class {
+    background: #eb5a46;
+    border-radius: 3px;
+    color: #fff;
+  }
+  .is_due_now {
+    width: fit-content;
+    padding: 5px;
+  }
+  .is_due_now:hover {
+    opacity: 0.8;
+  }
+  .comment_icons {
+    margin-left: auto;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 19px;
+  }
+
+  .comment_icons span{
+    margin-right: 5px;
+  }
+
+  .title_fa {
+   margin-right: 10px;
+  }
+
+
+  .modal-content {
+    width: 100%;
+    background: #f4f5f7;
+  }
+  .modal-header {
+    width: 100%;
+    background: black;
+    color:white;
+  }
+  #model_body_flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 600px;
+   /* opacity: ;*/
+  }
+  #model_main {
+    width: 75%;
+  }
+  #model_aside {
+    width: 20%;
+  }
+
+  button.close{
+    color: white;
+    font-size: 26px;
+    background: firebrick;
+    font-weight: bolder;
+    opacity: 1;
+
+  }
+  button.background_hidden {
+    background: transparent;
+    border: 2px solid black;
+  }
+  button.close:hover {
+    opacity: .8;
+    color: white;
+  }
+  #myModal1 .modal-dialog {
+    min-height: auto;
+  }
+  #myModal1 .modal-body.model_main_body {
+    min-height: 600px;
+    height: 500px;
+    max-height: auto;
+    overflow: auto;
+    padding: 20%px;
+    overflow: auto;
+
+  }
+
+  .aside-flex-item {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .aside-flex-item .aside_button{
+    background: gainsboro;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: black;
+
+  }
+
+  .aside-flex-item .aside_button:hover {
+    background: black;
+    color: white;
+
+  }
+
+  .label-containers .model_label {
+    display: flex;
+    justify-conent: center;
+    text-align: center;
+    align-items: center;
+
+    width: fit-content;
+    min-width: 70px;
+     max-width: 70%;
+    color: white;
+    font-weight: bolder;
+    overflow: hidden;
+    border-radius: 10px;
+    font-wieght: bolder;
+    font-size: 16px;
+  }
+
+  .label-containers .label_title_text {
+    color: white;
+
+  }
+
+  .aside_button_close{
+   margin-left: auto;
+   float: right;
+   height: auto;
+   min-height: 30px;
+   max-height: 35px;
+
+  }
+  div.popupmenu_action_hide {
+    background: white;
+    width: 250px;
+    height: auto;
+    max-height: 700px;
+    padding: 10px;
+    position: fixed;
+    right: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: none;
+  }
+  div.popupmenu_action {
+    background: white;
+    width: 250px;
+    height: auto;
+    max-height: 700px;
+    padding: 10px;
+    position: fixed;
+    right: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: fixed;
+    top: 15%;
+  }
+
+
+
+
+  .margin-right-mid {
+    margin: 5px;
+  }
+  .margin-top-mid{
+    margin-top: 10px;
+  }
+
+
+
+
+  .aside_button_close {
+    margin-right: auto;
+  }
+
+  h5.popupmenu_action_header{
+    background: lightgray;
+    color: black;
+    font-weight: bolder;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  /* New edits */
+  #model_labels_container{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 350px;
+    overflow: auto;
+  }
+
+
+  #model_labels_container .model_label_container{
+    width: 95%;
+    padding: 10px;
+  }
+
+  .model_label_container .label_txt {
+    color: white;
+    font-size: 15px;
+    font-size: bolder;
+    padding: 10px;
+  }
+
+   .label_edit {
+      width:100%;
+      margin-top: 10px;
+      height: 50px;
+      padding: 5px;
+      font-size: bolder;
+   }
+   .label_submit_container {
+       width:100%;
+   }
+
+  .container.label-containers .model_label #label_title_text  {
+     color: white;
+     padding: 10px;
+   }
+
+   #ticket_description{
+     padding: 10px;
+     background: lavender;
+     }
+
+
+     .model_custom_title {width:80%;display:none}
+
+   .label_color_flex_container {
+     display: none;
+     flex-flow: row wrap;
+     width: 95%;
+     gap: 1px;
+     margin-top: 3px;
+     margin-bottom: 3px;
+   }
+   .flex-color {
+     height: 25px;
+     width: 24%;
+     cursor: pointer;
+   }
+
+   .card_metadata div.card_label{
+    height: 25px;
+    overflow:hidden;
+  }
+
+   /* width */
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c377e0;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c377e0;
+  }
+
+   .errorinput{
+     border: 2px solid red;
+     color: red;
+   }
+
+
+  .attachment {
+    margin-top: 5px;
+    text-align: left;
+    max-height: 50px;
+    overflow: hidden;
+  }
+
+  #attachment_container {
+    height: auto;
+    max-height: 250px;
+    overflow: auto;
+    width: 95%;
+    padding: 5px;
+    min-height: auto;
+  }
+
+  .attachment {
+    margin-top: 3px;
+  }
+
+  .archive_card {
+    display: none !important;
+  }
+
+  .archive_class_title{
+    background: red;
+  }
+
+  .popup_list_hide{
+    background: white;
+    width: 220px;
+    height: 100px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position:absolute; left:30px; top:20px;
+    z-index: 100;
+    display: none;
+  }
+
+  .popup_list_show{
+    background: ghostwhite;
+    width: 220px;
+    height: auto;
+    max-height: 600px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position:absolute; left:30px; top:20px;
+    z-index: 100;
+    display: block;
+  }
+  .title-container-menu{
+   position:relative;
+   display: inline-block;
+   margin-left: auto;
+   float: right;
+   right: 30px;
+  }
+
+  .menu_sign i {
+    cursor: pointer;
+    height: 10px;
+    width: 15px;
+  }
+
+  .menu_sign i:hover {
+    color: white;
+  }
+
+  /* archive titme */
+  .show_archive_btn {
+    background: lavender;
+    margin-top: auto;
+    padding: 5px;
+    text-align: center;
+
+  }
+
+  .list_imenu {
+    color: black;
+  }
+
+  .list_archive_items {
+    margin-top: 10px;
+    min-height: 20px;
+    height: auto;
+    max-height: 600px;
+    overflow: auto;
+  }
+  .archive_item  {
+      background: antiquewhite;
+      padding: 5px;
+      max-width: 100%;
+      overflow: hidden;
+      margin-top: 2px;
+  }
+  .backupbtn {
+   float: right;
+   cursor: pointer;
+   color: green;
+   font-size: 18px;
+  }
+
+  .backupbtn:hover {
+    color: lightblue;
+  }
+
+  .close_btn_archive{
+    font-size: 16px;
+    cursor:pointer;
+    padding: 4px;
+    color: white;
+  }
+  .checklists-container{
+    display: flex;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    min-height: 100px;
+    overflow: auto;
+  }
+  .checklist-container {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    max-height: 100%;
+    padding: 10px;
+    width: 97%;
+    background: white;
+    margin-top: 10px;
+    background: azure;
+    border: 2px solid paleturquoise;
+    border-radius: 8px;
+  }
+
+  .checklist-container:hover {
+    background: lightblue;
+  }
+  .checklist_remover {
+    padding: 5px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    color: white;
+    text-align: center;
+    background: cadetblue;
+    margin-left: auto;
+  }
+  .checklist_remover:hover {
+    background: darksalmon;
+    color: white;
+  }
+
+  .checklist-child-container-active {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+  }
+
+
+  .checklist-child-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  }
+
+  .checklist-box {
+    margin-left: 5px;
+    padding: 10px;
+
+  }
+  .inital_checkbox {
+    display: none;
+  }
+
+
+
+  .hidden_elm {
+    display: none;
+  }
+
+  .displayflex{
+    display: flex;
+  }
+
+
+  .step_container .step_title{
+     width: 80%;
+     max-width: 80%;
+     overflow: hidden;
+     font-size: 16px;
+     align-self: flex-start;
+  }
+
+  .step_container input[type='checkbox']{
+    cursor: pointer;
+  }
+
+  .option_real_parent {
+     border: 1px solid antiquewhite;
+     padding: 10px;
+     text-align: left;
+
+  }
+  .step_container {
+      margin-top: 3px;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-left: 10px;
+      /* border: 1px solid antiquewhite;  */
+      max-width: 100%;
+
+
+  }
+
+  .checklist-container h6{
+   text-align: left;
+   padding: 5px;
+   font-size: 16px;
+   margin-left: 10px;
+   max-width: 90%;
+   overflow: hideen;
+
+
+  }
+
+  /*
+  .step_container:hover {
+    background: lightgray;
+  }
+*/
+  .addcard_labels_container {
+    overflow: auto;
+    height: 300px;
+  }
+
+  .card_labels_container {
+    margin-bottom: 5px;
+  }
+
+  #themodel_label_container .thelabel {
+    padding: 5px;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 8%;
+    width: fit-content;
+  }
+  #themodel_label_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    flex-flow: row wrap;
+  }
+  .skills_holder {
+    display: flex;
+    width: 80%;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 10px;
+    align-items: flex-start;
+    justify-content: center;
+    background: white;
+  }
+  .skills_container {
+
+    border-radius: 10px;
+    background: lightgray;
+    width: 95%;
+    height: 90%;
+
+  }
+
+  .skills {
+    text-align: right;
+    color: transparent;
+    text-align: center;
+    border-radius: 10px;
+    height: 90%;
+  }
+
+  .skill_text {
+    height: 95%;
+    font-size: 14px;
+  }
+  div.hidden_cell {
+    display: none;
+  }
+
+  .finished_option {width: 100%; background-color: #04AA6D;}
+  .not_finished_option {width: 0%; background-color: #04AA6D;}
+
+  #resolve_btn{
+    display: none;
+  }
+  .completed_card {
+    background: #61bd4f;
+    color: #fff;
+  }
+
+  div#model_title_container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row nowrap;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    min-height: 24px;
+
+  }
+  .card_model_title {
+    border: none;
+    overflow: hidden;
+    resize: none;
+    background: transparent;
+    color: #FFFFFF;
+    width: 80%;
+    word-break: break-word;
+    padding: 4px 8px;
+  }
+
+  .edited_title {
+    background: #FFFFFF;
+    color: black;
+    border: 2px solid blue !important;
+    outline: none;
+    border: none;
+    box-shadow: inset 0 0 0 2px #0079bf;
+    margin-left: 5px;
+  }
+
+  .checklist_title {
+    width: 87%;
+    text-align: justify;
+  }
+  #checklist_title_input {
+    resize:vertical;
+    max-height: 250px;
+    min-height:35px;
+}
+  /* small animation */
+  .currentdraged {
+    background-color: #A89C94FF;
+    animation-name: example;
+    animation-duration: 4s;
+  }
+
+  @keyframes example {
+    0%   {background-color: #669DB3FF;}
+    25%  {background-color: #A89C94FF;}
+    50%  {background-color: #F0F6F7FF;}
+    100% {background-color: #FF4F58FF;}
+  }

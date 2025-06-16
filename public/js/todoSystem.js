@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     addNewCardBtns.forEach(btn => {
         btn.addEventListener("click", () => {
-            const listId = btn.parentElement.id;
+            const listId = btn.parentElement.id.replace("list_", "");
             const newCardForm = createNewCardForm(listId);
             btn.insertAdjacentHTML("beforebegin", newCardForm);
         });
@@ -19,6 +19,4 @@ document.addEventListener("DOMContentLoaded", function () {
             </form>
         `;
     }
-
-    //
 });

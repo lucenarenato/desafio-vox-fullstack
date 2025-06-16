@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('label_color', 50);
             $table->string('list_title', 255);
             $table->integer('card_order');
-            $table->string('list_id', 50)->nullable(); // Pode ser UUID ou string
+            $table->integer('list_id')->nullable();
             $table->string('due_date', 255)->nullable();
             $table->string('card_timestamp', 255)->nullable();
             $table->string('archive_class', 50)->default('');

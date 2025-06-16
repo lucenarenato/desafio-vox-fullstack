@@ -1,7 +1,9 @@
 <div class="card_container" id="card_{{ $card->id }}" data-card-dbid="{{ $card->id }}">
     <div class="task_card">
-        <div class="card_metadata" data-list-id="{{ $loopIndex }}" data-labels="{{ $card->labels_string }}">
-            <div class="card_label">{{ $card->label_title }}</div>
+        <div class="card_metadata" data-labels="{{ $card->labels_string }}">
+            @if ($card->label_title)
+                <div class="card_label {{ $card->label_color }}">{{ $card->label_title }}</div>
+            @endif
         </div>
         <div class="card_text">{{ $card->title }}</div>
     </div>

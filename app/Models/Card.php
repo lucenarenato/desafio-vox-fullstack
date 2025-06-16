@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
 {
+
+    protected $guarded = [];
+
     protected $fillable = [
         'title',
         'description',
@@ -26,9 +29,14 @@ class Card extends Model
         'is_complete'
     ];
 
-    public function list()
+    /*public function list()
     {
         return $this->belongsTo(ListModel::class, 'list_id_fk');
+    }*/
+
+    public function list()
+    {
+        return $this->belongsTo(TaskList::class, 'list_id');
     }
 
     public function label()

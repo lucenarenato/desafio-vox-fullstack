@@ -42,4 +42,34 @@ class CardController extends Controller
         $labels = Label::all();
         return response()->json($labels);
     }
+
+    public function store(Request $request)
+    {
+        $date = now();
+        $timestamp = $date->getTimestamp();
+        $dateString = $date->format('n/j/Y g:i a');
+
+        $card = Card::create([
+            'title' => $request->title,
+            'label_title' => $request->label_title,
+            'label_color' => $request->label_color,
+            'list_title' => $request->list_title,
+            'card_order' => $request->card_order,
+            'list_id' => $request->list_id,
+            'card_timestamp' => $timestamp,
+            'create_date' => $dateString,
+            'labels_string' => $request->labels_string
+        ]);
+
+        return response()->json([
+            'code' => 200,
+            'id' => $card->id,
+            'message' => 'New card added successfully'
+        ]);
+    }
+
+    public function updatePosition(Request $request)
+    {
+        // Update card position logic
+    }
 }
