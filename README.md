@@ -23,10 +23,10 @@ php artisan cache:clear && php artisan config:clear && php artisan route:clear &
 chmod -R gu+w storage && chmod -R guo+w storage && chmod -R 777 storage/ && chmod -R 777 storage/* bootstrap/cache/*
 composer dump-autoload
 php artisan migrate
-php artisan db:seed --class=RolePermissionSeeder
-php artisan db:seed --class=PermissionTableSeeder
-php artisan db:seed --class=CreateAdminUserSeeder
+php artisan db:seed
 
 ```
 
-<p align="center"><a href="https://github.com/lucenarenato" target="_blank"><img src="#" width="600" alt="print"></a></p>
+<p align="center"><a href="https://github.com/lucenarenato/desafio-vox-fullstack" target="_blank"><img src="" width="600" alt="print"></a></p>
+
+![alt text](Screenshot_select-area_20250616052047.png)
