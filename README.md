@@ -27,6 +27,10 @@ php artisan db:seed
 
 ```
 
+## Usuario para Login
+- admin@teste.com ou user@teste.com
+- password = 123456789
+
 <p align="center"><a href="https://github.com/lucenarenato/desafio-vox-fullstack" target="_blank"><img src="Screenshot_select-area_20250616052047.png" width="600" alt="print"></a></p>
 
 ![alt text](Screenshot_select-area_20250616052047.png)
