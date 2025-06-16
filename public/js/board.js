@@ -1126,14 +1126,14 @@ $(document).ready(function () {
             var that = this;
             swal(
                 {
-                    title: "مطمئن هستید؟",
+                    title: "Tem certeza?",
                     text:
-                        "شما دیگر قادر به برگرداندن کارت ها و لیست نخواهید بود ",
+                        "You will no longer be able to turn over cards and lists. ",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "بله، پاکش کن",
-                    cancelButtonText: "نخیر، منصرف شدم!",
+                    confirmButtonText: "Yes, delete it.",
+                    cancelButtonText: "No, I gave up!",
                     closeOnConfirm: false,
                 },
                 function () {
